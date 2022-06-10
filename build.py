@@ -35,7 +35,7 @@ for line in lines:
         print(f"Ignoring {ref} as too old")
         continue
 
-    resp = session.get("https://quay.io/v2/jc2k/arkime/manifests/{ref}")
+    resp = session.get(f"https://quay.io/v2/jc2k/arkime/manifests/{ref}")
     if resp.status_code == 200:
         print(f"Ignoring {ref} as already on quay.io")
         continue
