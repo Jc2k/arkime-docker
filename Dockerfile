@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 FROM ubuntu:focal
 
-COPY --from=builder /moloch_$VERSION-1_amd64.deb /moloch_$VERSION-1_amd64.deb
+COPY --from=builder /arkime_$VERSION-1_amd64.deb /arkime_$VERSION-1_amd64.deb
 
 RUN apt-get install -y libmagic1 && \
     (dpkg -i *.deb || true) && \
