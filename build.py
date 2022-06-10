@@ -41,7 +41,11 @@ for line in lines:
         continue
 
     subprocess.check_call(
-        ["docker", "build", "-t", "quay.io/jc2k/arkime", "--build-arg", f"VERSION={ref}", "."]
+        ["docker", "build", "-t", f"quay.io/jc2k/arkime:{ref}", "--build-arg", f"VERSION={ref}", "."]
+    )
+
+    subprocess.check_call(
+        ["docker", "push", f"quay.io/jc2k/arkime:{ref}"]
     )
 
     raise RuntimeError("Forcing stop")
