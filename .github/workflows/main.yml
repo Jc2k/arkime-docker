@@ -9,5 +9,15 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: Login to Quay.io
+        uses: docker/login-action@v2
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_ROBOT_TOKEN }}
+
+      - name: install deps
+        run: python3 -m pip install httpx
+
       - name: generate
-        run: ./build.sh
+        run: ./build.py
