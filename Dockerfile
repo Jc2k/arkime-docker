@@ -10,7 +10,9 @@ FROM ubuntu:focal
 
 COPY --from=builder /arkime_$VERSION-1_amd64.deb /arkime_$VERSION-1_amd64.deb
 
-RUN apt-get install -y libmagic1 && \
+RUN apt-get update && \
+    apt-get install -y libmagic1 && \
     (dpkg -i *.deb || true) && \
     apt-get install -f -y && \
-    rm *.deb
+    rm *.deb && \
+    apt-get clean
