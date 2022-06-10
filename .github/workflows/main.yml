@@ -1,0 +1,13 @@
+name: cron
+on:
+  schedule:
+    - cron: "21 21 * * *"
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: generate
+        run: ./build.sh
