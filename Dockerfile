@@ -14,7 +14,7 @@ COPY --from=builder /arkime_$VERSION-1_amd64.deb /arkime_$VERSION-1_amd64.deb
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y libmagic1 && \
+    apt-get install -y iproute2 libmagic1 && \
     (dpkg -i *.deb || true) && \
     apt-get install -f -y && \
     rm *.deb && \
