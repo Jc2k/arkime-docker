@@ -19,3 +19,5 @@ RUN apt-get update && \
     apt-get install -f -y && \
     rm *.deb && \
     apt-get clean
+
+COPY arkime_config_interfaces.sh /opt/arkime/bin/arkime_config_interfaces.sh
