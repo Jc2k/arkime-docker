@@ -51,7 +51,7 @@ for interface in $interfaces ; do
 		/usr/sbin/ip link set $interface up || true
 		/usr/sbin/ip link set $interface promisc on || true
 		/sbin/ethtool -G $interface rx 4096 tx 4096 || true
-  		for i in rx tx sg tso ufo gso gro lro; do
+		for i in rx tx sg tso ufo gso gro lro rxvlan txvlan rxhash rx-vlan-filter tx-gre-segmentation tx-gre-csum-segmentation tx-ipxip4-segmentation tx-udp_tnl-segmentation tx-udp_tnl-csum-segmentation tx-gso-partial rx-udp_tunnel-port-offload tx-ipxip6-segmentation tx-udp-segmentation tx-vlan-stag-hw-insert tx-sctp-segmentation tx-vlan-offload; do
       			/sbin/ethtool -K $interface $i off || true
   		done
 	else
